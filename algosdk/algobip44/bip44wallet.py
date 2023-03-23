@@ -1,6 +1,6 @@
 from typing import Iterable, Tuple, Union
 
-# As a BIP44 Wallet is an improvement on BIP22 Wallets, we therefore have to import BIP32 so as to create a BIP44 Wallet
+# As a BIP44Wallet is an improvement on BIP22 Wallets, we therefore have to import BIP32 so as to create a BIP44 BIP44Wallet
 from bip32 import BIP32, HARDENED_INDEX
 
 # mnemonic library is used to import BIP39 multi-language passphrase functionality
@@ -11,13 +11,13 @@ from mnemonic import Mnemonic
 
 from .coins import COIN_PATHS, coin_path_by_index
 
-__all__ = ("Wallet",)
+__all__ = ("BIP44Wallet")
 
 
-class Wallet:
+class BIP44Wallet:
     def __init__(self, mnemonic: str, language: str = "english", passphrase: str = ""):
         """
-        BIP44 HD wallet with a master mnemonic.
+        BIP44 HD BIP44Wallet with a master mnemonic.
         :param mnemonic (str): The master mnemonic to derive keys
         :param language (str, optional): The mnemonic's language, default: "english", 
         others are -> "french", "chinese_simplified", "chinese_traditional", "italian", "japanese"
