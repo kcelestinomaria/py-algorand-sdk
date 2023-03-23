@@ -1,3 +1,3 @@
-from .wallet import Wallet
+from .bip44Wallet import BIP44Wallet
 
-__all__ = ("Wallet",)
+__all__ = ("BIP44Wallet")
