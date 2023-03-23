@@ -8,7 +8,6 @@ from nacl.public import PublicKey
 HASHER = nacl.hash.sha256
 
 def nacl_sha256(b: bytes) -> bytes:
-    #h = keccak.new(data=b, digest_bits=256)
     generated_hash = HASHER(msg=b, encoder=nacl.encoding.HexEncoder)
     return generated_hash
 
@@ -50,13 +49,13 @@ def get_ALGO_addr(pk: Union[str, bytes]) -> str:
         str: address of the account
     """
     pk = algosdk.address_from_private_key()
-    #OR
+    # OR
     # get/hardcode already generated account details for this example
-    
+
     pk_bytes = bytes.fromhex(pk) if isinstance(pk, str) else pk
 
     if len(pk_bytes) != 64:
         pk_bytes = PublicKey(pk_bytes).format(False)[1:]
 
     return convert_ALGO_account_to_checksum(f"0x{nacl_sha256((pk_bytes)[-20:].hex())}")
-    #(f"0x{keccak_256(pk_bytes)[-20:].hex()}")
+    

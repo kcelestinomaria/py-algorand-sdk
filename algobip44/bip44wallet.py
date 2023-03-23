@@ -6,6 +6,8 @@ from bip32 import BIP32, HARDENED_INDEX
 # mnemonic library is used to import BIP39 multi-language passphrase functionality
 # https://pypi.org/project/mnemonic/
 from mnemonic import Mnemonic
+#algosdk does not have multi-language passphrase functionality for its mnemonics/passphrases
+#from algosdk import mnemonic
 
 from .coins import COIN_PATHS, coin_path_by_index
 
